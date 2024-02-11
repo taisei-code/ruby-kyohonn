@@ -1,12 +1,20 @@
-# 関数add ;で1行で定義した関数
+### 関数とクラス
+
+## 関数の定義
+def add(a,b)
+  a + b
+end
+
+print add(1,2)
+
+## 「 ; 」で関数を1行で定義
 def add(a,b); a + b; end
 
-# クラスHoge
+## クラスの定義
 class Hoge
-  def test # testメソッドの定義
-    1
+  def test
   end
 end
 
-hoge = Hoge.new # Hogeクラスのインスタンスを生成
+hoge = Hoge.new # Hogeクラスのインスタンス生成
 hoge.test # Hogeクラスのtestメソッド実行
