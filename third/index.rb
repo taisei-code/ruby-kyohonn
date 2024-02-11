@@ -87,10 +87,14 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ## 文字列リテラル
 
-a = "abcd"
-p a
-p a.class
-b = "ab"'cd'
-p b
+# a = "abcd"
+# p a
+# p a.class
+# b = "ab"'cd'
+# p b
 
 ## 式展開
+
+a = 1
+p "a is #{a}"
+p 'a is #{a}'
