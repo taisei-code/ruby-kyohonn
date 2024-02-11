@@ -2,20 +2,20 @@
 
 ## ローカル変数の振る舞い
 
-foo = 1
+# foo = 1
 
-def bar
-  foo # メソッドから外部のローカル変数は参照できない
-end
+# def bar
+#   foo # メソッドから外部のローカル変数は参照できない
+# end
 
 ## グローバル変数の振る舞い
 
-$foo = 1
+# $foo = 1
 
-def bar
-  $foo # ブロックの外側のグローバル変数$fooを参照
-end
-bar
+# def bar
+#   $foo # ブロックの外側のグローバル変数$fooを参照
+# end
+# bar
 
 ### 数値リテラル
 
@@ -46,4 +46,18 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ### メソッド
 
+## メソッドの定義
 
+# def foo a,b
+#   a + b
+# end
+
+# foo(1,2) 
+# foo 2,3 # 引数はカッコを省略してOK
+
+## 引数のデフォルト値
+
+def foo(a, b=100)
+  a + b
+end
+p foo # ArgumentError
