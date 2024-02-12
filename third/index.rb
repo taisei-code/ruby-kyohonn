@@ -523,3 +523,13 @@ a = a ** 2 # 200 ** 2 = 40000
 # end
 
 ## whileとuntil
+
+## while
+
+i = 0
+while(0..4) === i do # iが0から4のとき
+  p i
+  i += 1
+end 
+
+## until
