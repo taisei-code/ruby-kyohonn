@@ -585,10 +585,57 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ## ブロックの判定
 
-def func 
-  return 1 if block_given?
-  2
-end
+# def func 
+#   return 1 if block_given?
+#   2
+# end
 
-p func(){} # ブロック指定 1
-p func     # ブロック指定なし 2
+# p func(){} # ブロック指定 1
+# p func     # ブロック指定なし 2
+
+### Proc
+
+## Procの基本
+
+# proc = Proc.new{ |x| p x}
+# proc.call(1)
+
+## Procオブジェクトの生成
+
+# def get_counter start
+#   Proc.new{ |up| start += up } # Procオブジェクト生成。startには現在の値を管理
+# end
+
+# count_up = get_counter(1) # 初期値として1を設定。count_upはProcオブジェクトを参照
+
+# p count_up.call(1) # 2
+# p count_up.call(3) # 5
+
+##ブロックへ変換
+
+# def func x
+#   x + yield 
+# end 
+
+# proc = Proc.new {2}
+# p func(1, &proc)
+
+## Proc変換
+
+# def func x, &proc 
+#   x + proc.call
+# end
+
+# func(1) do
+#   2
+# end
+
+## ブロックを受けるメソッド
+
+## 配列のeachメソッド
+
+[1,2,3].each do |value|
+  p value
+end 
+
+
