@@ -539,3 +539,56 @@ a = a ** 2 # 200 ** 2 = 40000
 #   p i
 #   i += 1
 # end
+
+### ブロックとProc
+
+## 例
+
+# def func x
+#   x + yield # 引数 + ブロック
+# end
+
+# p func(1){ 2 } # 3:ブロック付きメソッドfunc
+
+## スコープが作成されている
+
+# def func y
+#   y + yield 
+# end
+
+# func(1) do
+#   x = 2
+# end
+
+# p x # nameeror
+
+## クロージャーとしてのブロック
+
+# def func y
+#   y + yield # ブロック実行 そのとき　→ x取得、更新する（ブロックの外のxと同一）
+# end
+
+# x = 2 # ブロックの外で xに2を代入
+
+# p func(1){ x += 2 } # ← ブロックでxを更新
+# p x
+
+## ブロックのフォーマットと判定
+
+## ブロックの引数の指定
+
+# def func a, b
+#   a + yield(b,3)
+# end
+
+# p func(1,2){ |x,y| x + y } # 6
+
+## ブロックの判定
+
+def func 
+  return 1 if block_given?
+  2
+end
+
+p func(){} # ブロック指定 1
+p func     # ブロック指定なし 2
