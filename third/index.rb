@@ -634,8 +634,25 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ## 配列のeachメソッド
 
-[1,2,3].each do |value|
-  p value
-end 
+# [1,2,3].each do |value|
+#   p value
+# end 
 
+## each_with_indexメソッド
+
+# [3,4,5].each_with_index do |value, index|
+#   p value + index 
+# end
+
+## ハッシュのeachメソッド
+
+# {:a => 1, :b => 2}.each do |key,value|
+#   p "#{key}:#{value}"
+# end
+
+## 範囲オブジェクトのeachメソッド
+
+("a".."z").each do |value|
+  p value 
+end
 
