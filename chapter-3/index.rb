@@ -652,7 +652,25 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ## 範囲オブジェクトのeachメソッド
 
-("a".."z").each do |value|
-  p value 
-end
+# ("a".."z").each do |value|
+#   p value 
+# end
+
+## upto
+
+# 3.upto(5) do |i|
+#   p i 
+# end 
+
+## downto
+
+# 5.downto(1) do |i|
+#   p i
+# end
+
+## times
+
+# 4.times do |i|
+#   p i
+# end
 
