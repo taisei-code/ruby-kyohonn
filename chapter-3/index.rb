@@ -704,7 +704,27 @@ a = a ** 2 # 200 ** 2 = 40000
 ## 3-2
 ## 基数指示子
 
-p 0b10 # 2
-p 0o10 # 8
-p 0d10 # 10
-p 0x10 # 16
+# p 0b10 # 2
+# p 0o10 # 8
+# p 0d10 # 10
+# p 0x10 # 16
+
+## 表現できない数字を指定
+
+# p 0b2 # SyntaxError
+# p 0d1.1 # SyntaxError（少数点のため）
+
+### 例外処理
+
+# raise ArgumentError, "引数が不正"
+# # => ArgumentError
+# raise ArgumentError.new, "引数が不正"
+# # => ArgumentError
+
+# err = ArgumentError.new("引数が不正")
+# raise err 
+# # => 
+
+## 引数を省略
+# raise "実行中にエラー"
+# => RuntimeError
