@@ -728,3 +728,33 @@ a = a ** 2 # 200 ** 2 = 40000
 ## 引数を省略
 # raise "実行中にエラー"
 # => RuntimeError
+
+## Rubyの例外処理
+# begin 
+#   1 / 0
+#   p 1
+# rescue
+#   p 0 # ここが実行
+# end
+
+## else節とensure節
+
+# begin  # begin節は実行
+#   p 1 
+# rescue # 例外は発生しない、実行されない
+#   p 0 
+# else   # rescue実行されないから、else節が実行
+#   p 2 
+# ensure # ensure節は必ず実行
+#   p 3 
+# end 
+# => 1 2 3
+
+## メソッド内部のrescue節
+
+def foo 
+  -1 / 0
+  rescue
+  p 1 
+end
+foo
