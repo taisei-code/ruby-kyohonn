@@ -773,11 +773,32 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ## 例外の再発生
 
-begin 
-  1/0 
-rescue ZeroDivisionError 
-  p $!.class # ZeroDivisionError
-  raise 
-end 
+# begin 
+#   1/0 
+# rescue ZeroDivisionError 
+#   p $!.class # ZeroDivisionError
+#   raise 
+# end 
 
 ## retry
+
+# a = 1 
+
+# begin 
+#   b = 1 / a 
+# rescue ZeroDivisionError
+#   a += 1
+#   retry 
+# ensure
+#   p b 
+# end 
+
+## ensure節の実行順
+
+begin 
+  1/0 
+rescue
+  p 1 # 実行（最初にマッチしてるから）
+rescue ZeroDivisionError
+  p 2 # 実行されない
+end 
