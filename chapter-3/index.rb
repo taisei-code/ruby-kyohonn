@@ -726,10 +726,12 @@ a = a ** 2 # 200 ** 2 = 40000
 # # => 
 
 ## 引数を省略
+
 # raise "実行中にエラー"
 # => RuntimeError
 
 ## Rubyの例外処理
+
 # begin 
 #   1 / 0
 #   p 1
@@ -752,9 +754,30 @@ a = a ** 2 # 200 ** 2 = 40000
 
 ## メソッド内部のrescue節
 
-def foo 
-  -1 / 0
-  rescue
-  p 1 
-end
-foo
+# def foo 
+#   -1 / 0
+#   rescue
+#   p 1 
+# end
+# foo
+
+### 例外クラスを指定した補足
+
+## 例外オブジェクトの取得
+
+# begin 
+#   1/0
+# rescue ZeroDivisionError => e
+#   p e.backtrace 
+# end
+
+## 例外の再発生
+
+begin 
+  1/0 
+rescue ZeroDivisionError 
+  p $!.class # ZeroDivisionError
+  raise 
+end 
+
+## retry
