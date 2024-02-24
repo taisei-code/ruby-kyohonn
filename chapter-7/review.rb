@@ -30,15 +30,15 @@ x += 1 自己代入演算子で1を代入しているが、メソッド内で変
 
 #3
 
-begin 
-  puts 1 + "2"
-rescue
-  puts "Error."
-rescue TypeError 
-  puts "Type Error."
-ensure
-  puts "Ensure"
-end 
+# begin 
+#   puts 1 + "2"
+# rescue
+#   puts "Error."
+# rescue TypeError 
+#   puts "Type Error."
+# ensure
+#   puts "Ensure"
+# end 
 
 =begin 
 
@@ -49,20 +49,70 @@ rescue節
 
 #4
 
+# puts "90" # 90
+# puts '90' # 90
+# puts 0x90 # 144
+# puts 090  # Invalid octal digit (SyntaxError)
 
-#5
+=begin 
 
+0x で始まる数値は16進数
+0  で始まる数値は8進数
+→ 8進数は格桁の最大値が7。（90はありえない）
 
-#6
-
+=end
 
 #7
 
+# def foo(*a)
+#   p a [1,2,3]
+# end 
 
-#8
+# foo(1,2,3)
 
+=begin 
+
+可変長引数
+メソッドには、任意の引数を渡せる。
+
+結果は配列に格納
+=end 
 
 #9
+class Hoge 
+  attr_reader :message
+  def initialize
+    @message = "Hello"
+  end
+end 
 
+class Piyo < Hoge 
+  def initialize # 実行される
+    @message = "Hi"
+    super # Hiを代入後のsuper スーパークラスのinitialize
+  end 
+end 
+puts Piyo.new.message # Piyoクラスのインスタンス化
+# => Hello
+
+# 継承/オーバーライド
+class Job1 # スーパークラス
+  def myjob_job1
+    puts "私の仕事は教師です。"
+  end
+end 
+
+class Job2 < Job1 # サブクラス
+  def myjob 
+    puts "私の仕事はエンジニアです。"
+  end 
+end 
+
+job = Job2.new # Job2のインスタンス作成
+p job.myjob_job1
+
+=begin 
+
+=end 
 
 #10
