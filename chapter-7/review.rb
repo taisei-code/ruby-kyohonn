@@ -79,55 +79,22 @@ rescue節
 =end 
 
 #9
-class Hoge 
-  attr_reader :message
-  def initialize
-    @message = "Hello"
-  end
-end 
-
-class Piyo < Hoge 
-  def initialize # 実行される
-    @message = "Hi"
-    super # Hiを代入後のsuper スーパークラスのinitialize
-  end 
-end 
-puts Piyo.new.message # Piyoクラスのインスタンス化
-# => Hello
-
-# 継承/オーバーライド
-
-## 別名のメソッド定義
-# class Job1 # スーパークラス
-#   def myjob_job1
-#     puts "私の仕事は教師です。"
+# class Hoge 
+#   attr_reader :message
+#   def initialize
+#     @message = "Hello"
 #   end
 # end 
 
-# class Job2 < Job1 # サブクラス
-#   def myjob 
-#     puts "私の仕事はエンジニアです。"
+# class Piyo < Hoge 
+#   def initialize # 実行される
+#     @message = "Hi"
+#     super # Hiを代入後のsuper スーパークラスのinitialize
 #   end 
 # end 
+# puts Piyo.new.message # Piyoクラスのインスタンス化
+# # => Hello
 
-# job = Job2.new # Job2のインスタンス作成
-# job.myjob_job1 # => 私の仕事は教師です。
-
-## 同名のメソッド定義　
-# class Job3 
-#   def myjob
-#     puts "私の仕事は教師です。"
-#   end 
-# end 
-
-# class Job4 < Job3 
-#    def myjob
-#     puts "私の仕事はエンジニアです。"
-#   end 
-# end 
-
-# job = Job4.new # Job4のインスタンス作成
-# job.myjob # => 私の仕事はエンジニアです。
 
 =begin 
 
@@ -143,3 +110,51 @@ rubyでは、サブクラス（子クラス）がスーパークラス（親ク�
 =end 
 
 #10
+
+# include Math 
+
+# def area r 
+#   return r * r * Math::PI 
+# end 
+# p area(1) # => 3.141592653589793
+
+=begin 
+
+円の面積を求めるコード
+
+定数PIはMathモジュールに定義されてる。
+2通り
+・Mathモジュールをインクルード
+・Math::PIと記述して、明示的にPIを宣言
+
+=end
+
+#12
+
+s = "Hello"
+
+def s.greet 
+  puts "Hi!" #実行される
+end 
+
+class String 
+  def greet 
+    puts "Hello!"
+  end 
+end 
+
+s.greet
+
+=begin 
+
+特異メソッド > クラス拡張して定義したメソッド
+
+=end
+
+
+#11
+#11
+#11
+#11
+#11
+#11
