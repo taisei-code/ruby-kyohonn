@@ -63,29 +63,52 @@ rubyでは、サブクラス（子クラス）がスーパークラス（親ク�
 
 # 特異メソッド
 
-class Movie 
-  def i_method 
-    p 'instance method'
-  end 
-end 
+# class Movie 
+#   def i_method 
+#     p 'instance method'
+#   end 
+# end 
 
-# Movieクラスが作成された2つのインスタンス クラス内のインスタンスメソッドを使える
-obj1 = Movie.new
-obj2 = Movie.new
+# # Movieクラスが作成された2つのインスタンス クラス内のインスタンスメソッドを使える
+# obj1 = Movie.new
+# obj2 = Movie.new
 
-# obj1のみで使える特異メソッド
-def obj1.s_method
-  p 'singlton method'
-end
+# # obj1のみで使える特異メソッド
+# def obj1.s_method
+#   p 'singlton method'
+# end
 
-obj1.i_method # => "instance method"
-obj2.i_method # => "instance method"
-obj1.s_method # => "singlton method"
-obj2.s_method # => NoMethodError
+# obj1.i_method # => "instance method"
+# obj2.i_method # => "instance method"
+# obj1.s_method # => "singlton method"
+# obj2.s_method # => NoMethodError
 
 =begin 
 
 特異メソッドとは、１つのインスタンス固有のメソッド
 定義方法：　def オブジェクト名.メソッド名
+
+=end
+
+# & と |
+
+# %記法 （ %w ）
+
+# p %w(dog cat) 
+# # => ["dog", "cat"]
+# p %w(#{dog} cat bird)
+# # => ["\#{dog}", "cat", "bird"] 式展開されませんが、\で#がエスケープされます。
+
+# p %i(dog cat bird)
+# # => [:dog, :cat, :bird]
+# p %i(#{dog} cat bird)
+# # => [:"\#{dog}", :cat, :bird]
+
+=begin 
+
+小文字は式展開できない
+
+wは配列
+iはシンボル
 
 =end
